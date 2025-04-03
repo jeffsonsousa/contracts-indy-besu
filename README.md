@@ -1,14 +1,29 @@
-# Configurando sua rede 
-Configure o arquivo  hardhat.config.ts com o endereço de sua rede e a chave privada:
+# Deploy e Inicialização de Contratos de Identidade Descentralizada 
 
-![Ignition Deploy and Initialize](../Deploy_Contracts/img/hardhatConfig.png)
+Este projeto contém uma arquitetura completa baseada em contratos inteligentes para gerenciar identidades descentralizadas (DIDs), revogação de credenciais, registros de esquema e controle de acesso. A implantação é feita via Hardhat com suporte ao Ignition, permitindo deploy modular e inicialização automatizada.
+
+## Requisitos
+
+- Node.js v16+
+- Hardhat
+- npm
 
 
-## Execute
+Antes de iniciar o deploy, certifique-se de configurar o arquivo hardhat.config.ts com os dados corretos da sua rede:
+```
+networks: {
+  local: {
+    url: "http://127.0.0.1:8545", // ou o endereço da sua rede
+    accounts: ["SUA_CHAVE_PRIVADA"]
+  }
+}
+```
+![Ignition Deploy and Initialize](./img/hardhatConfig.png)
 
+## Instale as dependências e compile os contratos: 
 
 ```shell
-npm install 
+npm install
 npx hardhat compile
 ```
 
@@ -58,4 +73,4 @@ npx hardhat ignition deploy ./ignition/modules/DeployAndInitializeContracts.ts -
 
 Após a execução do comando, você verá os endereços dos contratos no terminal. Esses endereços são importantes para interagir com os contratos já implantados.
 
-![Ignition Deploy and Initialize](../Deploy_Contracts/img/DeployAndInitialize.png)
+![Ignition Deploy and Initialize](./img/DeployAndInitialize.png)
